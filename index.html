@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="منيو تراث العز">
+<meta property="og:description" content="طعم تراثنا في كل منتج — اختر طلبك وأرسله على واتساب">
+<meta property="og:image" content="logo.jpg">
+<link rel="icon" href="logo.jpg">
+<title>منيو تراث العز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f2e9; --card:#fffaf3; --card2:#fffdf9; --line:#eadac7; --ink:#49372c; --muted:#806f62;
+  --accent:#c45e35; --accent-d:#a94c28; --green:#5f765f; --green-d:#4d634d; --chip:#c9ddd8; --sand:#f3e6d7;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);direction:rtl;color:var(--ink);font-family:Tajawal,Tahoma,Arial,sans-serif;-webkit-tap-highlight-color:transparent;padding-bottom:96px}
+button{font-family:inherit}
+main{max-width:980px;margin:auto;padding:14px}
+
+/* Hero */
+.hero{text-align:center;background:linear-gradient(180deg,#fffdf9,#fbf2e7);border:1px solid var(--line);border-radius:28px;padding:24px 14px;box-shadow:0 9px 25px #49372c14}
+.logo{width:140px;height:140px;margin:0 auto 10px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 7px 18px #49372c28;background:var(--sand)}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero h1{font-size:36px;color:var(--accent);margin:4px 0 6px;font-weight:800}
+.hero p{margin:0;color:#5f4c40;font-weight:700}
+.ornament{color:#a66c4c;letter-spacing:6px;margin-top:8px}
+
+/* Intro */
+.intro{margin:16px 0 8px;background:linear-gradient(180deg,#fffaf3,#f8efe4);border:1px solid var(--line);border-radius:24px;padding:22px 14px 18px;text-align:center}
+.intro .kicker{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:6px}
+.intro h2{margin:0;font-size:25px;line-height:1.45}
+.intro .txt{max-width:640px;margin:8px auto 16px;color:var(--muted);line-height:1.9;font-size:15px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;max-width:760px;margin:0 auto 14px}
+.cat-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:118px;padding:14px 9px;background:var(--card2);color:var(--ink);border:1px solid var(--line);border-radius:18px;text-decoration:none;box-shadow:0 4px 12px #49372c0d;cursor:pointer}
+.cat-card .ic{font-size:28px;margin-bottom:6px}
+.cat-card b{font-size:17px;color:var(--accent);margin-bottom:3px}
+.cat-card small{font-size:12px;line-height:1.55;color:var(--muted)}
+.help{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font-weight:700;border-radius:14px;padding:12px 22px;font-size:15px}
+.help-note{margin:8px 0 0;color:var(--muted);font-size:13px}
+
+/* Tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:8px;justify-content:center;padding:10px 0;margin:6px -14px 0;background:linear-gradient(var(--bg) 80%,#f8f2e900)}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:14px;padding:9px 16px;border-radius:12px;cursor:pointer}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Sections & cards */
+.cat-title{text-align:center;color:var(--accent);font-size:27px;margin:22px 0 12px;scroll-margin-top:64px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-align:center;transition:box-shadow .2s,border-color .2s}
+.card.in-cart{border-color:var(--accent);box-shadow:0 0 0 2px #c45e3526}
+.photo{position:relative;aspect-ratio:1/1;background:var(--sand)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .noimg{position:absolute;inset:0;display:grid;place-items:center;font-size:40px;color:#c9b39c}
+.num{position:absolute;top:9px;right:9px;background:var(--chip);border:2px solid #fff;min-width:34px;height:34px;padding:0 6px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:14px}
+.badge{position:absolute;left:9px;bottom:9px;background:#fffaf3ee;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700}
+.body{padding:10px 10px 12px;display:flex;flex-direction:column;flex:1}
+.body h3{margin:2px 0 4px;font-size:16px;line-height:1.45}
+.price{color:var(--accent);font-size:21px;font-weight:800;margin-bottom:4px}
+.price small{font-size:13px;color:var(--muted);font-weight:700}
+.price.ask{font-size:15px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:2px 0 6px}
+.opts button{border:1px solid var(--line);background:var(--card2);color:var(--ink);border-radius:10px;padding:6px 9px;font-size:12px;font-weight:700;cursor:pointer}
+.opts button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.info{font-size:12.5px;line-height:1.7;color:var(--muted);margin-bottom:4px;white-space:pre-line}
+.deposit{font-size:12.5px;color:var(--green-d);font-weight:700;margin-bottom:4px}
+details{margin:4px 0 8px;border:1px solid var(--line);border-radius:10px;background:var(--card2);text-align:right}
+summary{cursor:pointer;list-style:none;padding:7px 9px;font-size:12px;font-weight:700;color:var(--muted);text-align:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:" ▾";font-size:10px}
+details[open] summary:after{content:" ▴"}
+details p{margin:0;padding:2px 10px 8px;font-size:12.5px;line-height:1.8;color:#5f4c40;white-space:pre-line}
+.video{display:block;width:max-content;max-width:calc(100% - 20px);margin:0 auto 9px;padding:6px 11px;border-radius:9px;background:var(--muted);color:#fff;font-size:12px;text-decoration:none;font-weight:700}
+.act{margin-top:auto;padding-top:4px}
+.add{width:100%;border:0;background:var(--accent);color:#fff;font-weight:800;font-size:14px;padding:10px;border-radius:12px;cursor:pointer}
+.add:active{background:var(--accent-d)}
+.step{display:flex;align-items:center;justify-content:space-between;background:var(--card2);border:1.5px solid var(--accent);border-radius:12px;overflow:hidden}
+.step button{width:42px;height:40px;border:0;background:transparent;color:var(--accent);font-size:22px;font-weight:800;cursor:pointer}
+.step span{font-weight:800;font-size:16px}
+
+footer{text-align:center;color:var(--muted);font-size:13px;margin:26px 0 8px}
+
+/* Cart bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(#f8f2e900,var(--bg) 30%);transform:translateY(120%);transition:transform .25s}
+.bar.show{transform:none}
+.bar button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;max-width:560px;margin:auto;border:0;background:var(--green);color:#fff;border-radius:16px;padding:13px 16px;font-size:16px;font-weight:800;box-shadow:0 8px 22px #49372c33;cursor:pointer}
+.bar .lbl{display:inline-flex;align-items:center;gap:8px}
+.bar .cnt{background:#fff;color:var(--green);border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;font-size:14px;padding:0 7px}
+
+/* Sheet */
+.ov{position:fixed;inset:0;z-index:50;background:#2b201a80;display:none}
+.ov.show{display:block}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-width:620px;margin:auto;max-height:92vh;overflow:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:14px 14px calc(18px + env(safe-area-inset-bottom))}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sheet-h h2{margin:0;font-size:21px;color:var(--accent)}
+.x{border:1px solid var(--line);background:var(--card);border-radius:10px;width:38px;height:38px;font-size:18px;cursor:pointer;color:var(--ink)}
+.line{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;margin-bottom:8px}
+.line img,.line .ph{width:54px;height:54px;border-radius:10px;object-fit:cover;background:var(--sand);flex:none}
+.line .t{flex:1;min-width:0}
+.line .t b{display:block;font-size:14px;line-height:1.4}
+.line .t small{color:var(--muted);font-size:12px}
+.line .step{flex:none;width:112px}
+.line .step button{width:34px;height:34px;font-size:19px}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:10px 0}
+.sum div{display:flex;justify-content:space-between;padding:3px 0;font-size:14px}
+.sum .tot{font-size:18px;font-weight:800;color:var(--accent)}
+.sum .note{color:var(--muted);font-size:12.5px;display:block}
+.fields{display:grid;gap:8px;margin:8px 0 12px}
+.fields label{font-size:13px;font-weight:700;color:var(--muted)}
+.fields input,.fields textarea{width:100%;margin-top:4px;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px;font-family:inherit;font-size:15px;color:var(--ink)}
+.fields textarea{min-height:64px;resize:vertical}
+.send{display:flex;align-items:center;justify-content:center;gap:8px;background:#1f9d55;color:#fff;text-decoration:none;font-weight:800;font-size:17px;padding:14px;border-radius:14px}
+.clear{display:block;margin:10px auto 0;border:0;background:none;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer}
+.empty{text-align:center;color:var(--muted);padding:20px 0}
+
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+@media(max-width:620px){
+  main{padding:10px}
+  .hero h1{font-size:30px}.logo{width:118px;height:118px}
+  .intro h2{font-size:21px}.intro .txt{font-size:14px}
+  .cats{grid-template-columns:repeat(3,1fr);gap:7px}
+  .cat-card{min-height:100px;padding:10px 5px}.cat-card b{font-size:14px}.cat-card small{font-size:10.5px}.cat-card .ic{font-size:24px}
+  .tabs{margin:6px -10px 0;gap:6px;padding:8px 10px}.tabs button{flex:1;font-size:12.5px;padding:8px 4px}
+  .cat-title{font-size:23px}
+  .body{padding:8px 7px 10px}.body h3{font-size:14px}.price{font-size:18px}
+  .info,.deposit{font-size:11.5px}.opts button{font-size:11px;padding:5px 7px}
+  .num{min-width:30px;height:30px;font-size:12px;border-radius:9px;top:7px;right:7px}.badge{font-size:9.5px;padding:3px 7px}
+  .add{font-size:13px;padding:9px 4px}
+}
+</style>
+
+</head>
+<body>
+<main id="app" dir="rtl" lang="ar"></main>
+<div class="bar" id="bar" dir="rtl"><button id="barBtn" type="button"><span class="lbl">🛒 عرض طلبك <span class="cnt" id="barCnt">0</span></span><span id="barTot"></span></button></div>
+<div class="ov" id="ov" dir="rtl"><div class="sheet" role="dialog" aria-modal="true" aria-label="طلبك" id="sheet"></div></div>
+
+<script>
+var DATA = {"settings":{"title":"قائمة تراث العز","store":"تراث العز","tagline":"طعم تراثنا في كل منتج","phone":"966593620434","logo":"logo.jpg","intro":"كل ما تحتاجه لضيافتك في مكان واحد","introText":"من منتجات تراثية مختارة إلى تقديمات الضيافة والذبائح، اختر القسم المناسب لك وانتقل إليه مباشرة."},"items":[{"id":"r2","num":"1","cat":"المنتجات","name":"سمن تراث العز نص","price":90,"options":[],"unit":"","deposit":null,"info":"","desc":"سمن غنم صافي بدون إضافات","video":"https://vt.tiktok.com/ZSVtJNYEL/","image":"01.jpg"},{"id":"r3","num":"2","cat":"المنتجات","name":"دخن تراث العز","price":20,"options":[{"label":"كيلو","price":20},{"label":"نصف كيلو","price":10}],"unit":"","deposit":null,"info":"","desc":"دخن جيزاني بدون إضافات","video":"","image":"02.jpg"},{"id":"r4","num":"3","cat":"المنتجات","name":"خلطة القهوة","price":15,"options":[],"unit":"","deposit":null,"info":"","desc":"خلطة خاصة للقهوة السعودية، صُنعت بكل احترافية من كميات موزونة من الهيل والقرنفل وغيرها، لتعطي القهوة نكهة مميزة.","video":"https://vt.tiktok.com/ZSVtJAdPL/","image":"03.jpg"},{"id":"r5","num":"4","cat":"المنتجات","name":"قهوة سعودية","price":60,"options":[{"label":"كيلو","price":60},{"label":"نصف كيلو","price":30}],"unit":"","deposit":null,"info":"","desc":"قهوة هرري درجة أولى، بأيدي سعودية، ذات لون متوسط.","video":"https://vt.tiktok.com/ZSVtJAdPL/","image":"04.jpg"},{"id":"r6","num":"5","cat":"المنتجات","name":"مضير","price":70,"options":[{"label":"كيلو","price":70},{"label":"نصف كيلو","price":35}],"unit":"","deposit":null,"info":"","desc":"مضير بقري هش بحموضة موزونة.","video":"","image":"05.jpg"},{"id":"r7","num":"6","cat":"المنتجات","name":"بوكس تراث العز الربع","price":90,"options":[],"unit":"","deposit":null,"info":"","desc":"بوكس متنوع من منتجات تراث العز، مناسب للضيافة والإهداء. يحتوي على: سمن غنم، دخن، قهوة سعودية، خلطة قهوة، وعلبة مضير. السمن والدخن والقهوة بوزن ربع كيلو لكل صنف.","video":"","image":"06.jpg"},{"id":"r8","num":"7","cat":"المنتجات","name":"بوكس تراث العز النص","price":155,"options":[],"unit":"","deposit":null,"info":"","desc":"بوكس متنوع من منتجات تراث العز، مناسب للضيافة والإهداء. يحتوي على: سمن غنم، دخن، قهوة سعودية، خلطة قهوة، وعلبة مضير. السمن والدخن والقهوة بوزن نصف كيلو لكل صنف.","video":"","image":"07.jpg"},{"id":"r9","num":"8","cat":"المنتجات","name":"زبدة غنم – نصف كيلو","price":50,"options":[],"unit":"","deposit":null,"info":"","desc":"زبدة غنم طبيعية بدون إضافات، تتوفر بالحجز المسبق.","video":"","image":"08.jpg"},{"id":"r10","num":"9","cat":"المنتجات","name":"علبة حشانة","price":20,"options":[],"unit":"","deposit":null,"info":"","desc":"علبة حشانة بدون إضافات، بوزن ربع كيلو تقريبًا، تتوفر بالحجز المسبق.","video":"","image":"09.jpg"},{"id":"r11","num":"10","cat":"تقديمات الضيافة","name":"علبة خواضة جاهزة","price":30,"options":[],"unit":"","deposit":null,"info":"","desc":"خواضة طازجة وجاهزة للتقديم في علبة صغيرة","video":"","image":"10.jpg"},{"id":"r12","num":"11","cat":"تقديمات الضيافة","name":"صحن مفطح بالتمر فذ","price":1200,"options":[],"unit":"","deposit":200,"info":"المقاس: ١٢٠ × ٧٠ سم\nالسعر شامل التوصيل والرجوع لأخذ الصواني","desc":"صحن مفطح يحتوي على تمر فذ بوزن 20 كيلو تقريبًا، ومضير، وثلاث طاسات خواضة.","video":"https://vt.tiktok.com/ZSVtJqm3y/","image":"11.jpg"},{"id":"r13","num":"12","cat":"تقديمات الضيافة","name":"صحن مفطح بالنخلتين","price":1300,"options":[],"unit":"","deposit":200,"info":"المقاس: ١٢٠ × ٧٠ سم\nالسعر شامل التوصيل والرجوع لأخذ الصواني","desc":"صحن مفطح يحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس)، بالإضافة إلى نخلتين من التمر المحشي، بوزن 20 كيلو تقريبًا، مع طاستين خواضة كبيرة.\nيوجد إضافة مضير بسعر ١٢٠ ﷼","video":"https://vt.tiktok.com/ZSVte6Q3u/","image":"12.jpg"},{"id":"r14","num":"13","cat":"تقديمات الضيافة","name":"صحن مفطح كلاسيك","price":1000,"options":[],"unit":"","deposit":200,"info":"المقاس: ١٢٠ × ٧٠ سم\nالسعر شامل التوصيل والرجوع لأخذ الصواني","desc":"صحن مفطح يحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس) بوزن 20 كيلو تقريبًا، مع المضير وثلاث طاسات خواضة.\nإضافات بسعر مختلف (سمن صافي، طحينة، زبدة، معمول، قلات الخواضة أو الطحينة)","video":"https://vt.tiktok.com/ZSVtdURSj/","image":"13.jpg"},{"id":"r15","num":"14","cat":"تقديمات الضيافة","name":"صحن مفطح ذهبي فاخر","price":1000,"options":[],"unit":"","deposit":200,"info":"السعر شامل التوصيل والرجوع لأخذ الصواني","desc":"صحن مفطح ذهبي فاخر يحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس) بوزن 15 كيلو تقريبًا، مع المضير وطاستين خواضة وطاستين سمن غنم، أو طاستين خواضة وطاستين زبدة غنم، حسب طلب العميل.","video":"https://vt.tiktok.com/ZSVteoLeK/","image":"14.jpg"},{"id":"r16","num":"15","cat":"تقديمات الضيافة","name":"صحن مفطح ذهبي فاخر بالنخلة","price":1350,"options":[],"unit":"","deposit":200,"info":"السعر شامل التوصيل والرجوع لأخذ الصواني","desc":"صحن مفطح ذهبي فاخر يحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس، ونخلة تمر محشي) بوزن 15 كيلو تقريبًا، مع المعمول، وقلات الخواضة، والطحينة، والمضير، وطاستين خواضة وطاستين سمن غنم، أو طاستين خواضة وطاستين زبدة غنم، حسب طلب العميل.","video":"https://vt.tiktok.com/ZSVtRLo2X/","image":"15.jpg"},{"id":"r17","num":"16","cat":"تقديمات الضيافة","name":"قلات الخواضة","price":350,"options":[],"unit":"","deposit":100,"info":"السعر غير شامل التوصيل","desc":"منتج خاص بتراث العز، عبارة عن تمر محشو بالخواضة، وتحتوي الصينية على 480 حبة تقريبًا.","video":"https://vt.tiktok.com/ZSVteGxpW/","image":"16.jpg"},{"id":"r18","num":"17","cat":"تقديمات الضيافة","name":"صحن أدوار تمر محشي","price":350,"options":[],"unit":"","deposit":100,"info":"السعر غير شامل التوصيل","desc":"صينية أدوار تحتوي على تمر محشي بوزن 7.5 كيلو تقريبًا.","video":"https://vt.tiktok.com/ZSVtdWfYR/","image":"17.jpg"},{"id":"r19","num":"18","cat":"تقديمات الضيافة","name":"صينية أدوار مشكلة","price":300,"options":[],"unit":"","deposit":null,"info":"","desc":"صينية أدوار بكرات التمر والتمر المحشي والمضير","video":"https://vt.tiktok.com/ZSqrtTKJk/","image":"18.jpg"},{"id":"r20","num":"19","cat":"تقديمات الضيافة","name":"صينية قلات الخواضة والتمر المحشي","price":250,"options":[],"unit":"","deposit":null,"info":"","desc":"صواني فضية فاخرة للزواجات بقلات الخواضة والتمر المحشي","video":"https://vt.tiktok.com/ZSqrDNa1E/","image":"19.jpg"},{"id":"r21","num":"20","cat":"تقديمات الضيافة","name":"صينية ربع مفطح","price":250,"options":[],"unit":"","deposit":null,"info":"السعر غير شامل التوصيل","desc":"صينية ربع مفطح بمقاس 30 × 65 سم، تحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس) بوزن 4 كيلو تقريبًا، مع مضير وطاستين خواضة، أو طاسة خواضة وطاسة سمن غنم حسب الطلب.","video":"https://vt.tiktok.com/ZSVte9VC6/","image":"20.jpg"},{"id":"r22","num":"21","cat":"تقديمات الضيافة","name":"صينية ذهبي فاخرة","price":250,"options":[],"unit":"","deposit":null,"info":"","desc":"تمور متنوعة مع المضير والخواضة","video":"https://vt.tiktok.com/ZSqrASRfq/","image":"21.jpg"},{"id":"r23","num":"22","cat":"تقديمات الضيافة","name":"صينية وسط فاخرة","price":300,"options":[],"unit":"","deposit":null,"info":"","desc":"تشكيلة متنوعة تمريات، كرات تمر، تمور، خواضة ومضير متنوعة","video":"https://vt.tiktok.com/ZSqrDf1tM/","image":"22.jpg"},{"id":"r24","num":"23","cat":"تقديمات الضيافة","name":"صحن وسط ذهبي","price":350,"options":[],"unit":"","deposit":50,"info":"السعر غير شامل التوصيل","desc":"صحن ذهبي فاخر بمقاس 70 × 60 سم، يحتوي على تمر فذ بوزن 5.5 كيلو تقريبًا، مع المضير وطاسة خواضة.","video":"","image":"23.jpg"},{"id":"r25","num":"24","cat":"تقديمات الضيافة","name":"صحن ذهبي مشكل وسط","price":350,"options":[],"unit":"","deposit":50,"info":"السعر غير شامل التوصيل","desc":"صحن ذهبي فاخر بمقاس 70 × 60 سم، يحتوي على تمور متنوعة (فذ، خلاص، سكري مكبوس) بوزن 5.5 كيلو تقريبًا، مع المضير وطاسة خواضة.","video":"","image":"24.jpg"},{"id":"r26","num":"25","cat":"تقديمات الضيافة","name":"صحن ربع مفطح بالمعمول وقلات الخواضة","price":300,"options":[],"unit":"","deposit":50,"info":"السعر غير شامل التوصيل","desc":"صينية ربع مفطح بمقاس 30 × 65 سم، تحتوي على معمول بثلاث نكهات مختلفة، مع قلات الخواضة.","video":"https://vt.tiktok.com/ZSVtR48rP/","image":"25.jpg"},{"id":"r27","num":"26","cat":"تقديمات الضيافة","name":"صينية تمر محشي بقاعدة زجاج","price":230,"options":[],"unit":"","deposit":null,"info":"السعر شامل جميع الملحقات","desc":"تمر محشي بوزن 2.5 كيلو تقريبًا، مناسب للمناسبات المتوسطة.","video":"https://vt.tiktok.com/ZSVtRptBp/","image":"26.jpg"},{"id":"r28","num":"27","cat":"تقديمات الضيافة","name":"صينية ذهبية بتشكيلة فاخرة","price":270,"options":[],"unit":"","deposit":null,"info":"","desc":"صينية بتشكيلة واسعة من التمور المتنوعة والتمر المحشي وقلات الخواضة والطحينة مع السمن والخواضة والمضير.","video":"https://vt.tiktok.com/ZSqDD9c21/","image":"27.jpg"},{"id":"r29","num":"28","cat":"تقديمات الضيافة","name":"صحن ربع مفطح مشكل","price":250,"options":[],"unit":"","deposit":null,"info":"","desc":"تشكيلة متنوعة من التمر الفذ والسكري والخلاص والمعمول والتمر المحشي. واختيار العميل لمحتويات الطاسات: خواضة أو سمن أو جميعها خواضة.","video":"https://vt.tiktok.com/ZSqDUbMjt/","image":"28.jpg"},{"id":"r30","num":"29","cat":"تقديمات الضيافة","name":"صينية زجاج قلات الخواضة","price":85,"options":[],"unit":"","deposit":null,"info":"","desc":"١٢٠ حبة قلات الخواضة","video":"https://vt.tiktok.com/ZSqrSm2yw/","image":"29.jpg"},{"id":"r31","num":"30","cat":"تقديمات الضيافة","name":"صحون زجاج مشكلة فاخرة","price":14,"options":[],"unit":"للصحن","deposit":null,"info":"","desc":"مناسبة لطاولات الخدمة","video":"https://vt.tiktok.com/ZSqrSomvR/","image":"30.jpg"},{"id":"r32","num":"31","cat":"تقديمات الضيافة","name":"صحن دائري ذهبي – قلات الخواضة","price":190,"options":[],"unit":"","deposit":50,"info":"السعر غير شامل التوصيل","desc":"صحن دائري ذهبي يحتوي على قلات الخواضة بحجم كبير.","video":"https://vt.tiktok.com/ZSVtdXJe9/","image":"31.jpg"},{"id":"r33","num":"32","cat":"تقديمات الضيافة","name":"صحن قصدير مشكل بالخواضة","price":120,"options":[{"label":"الحجم الكبير","price":120},{"label":"الحجم الصغير","price":70}],"unit":"","deposit":null,"info":"السعر غير شامل التوصيل","desc":"صحن قصدير بتشكيلة متنوعة تحتوي على التمر المحشي، وكرات التمر، والمضير، وتمر الفذ، والخلاص، مع الخواضة.","video":"https://vt.tiktok.com/ZSVtRNAmF/","image":"32.jpg"},{"id":"r34","num":"33","cat":"تقديمات الضيافة","name":"صحن دائري مشكل بالخواضة","price":200,"options":[],"unit":"","deposit":50,"info":"السعر غير شامل التوصيل","desc":"صحن دائري يحتوي على تشكيلة من تمر الخلاص، وكرات التمر، والتمر المحشي، والمضير، والمعمول، مع طاسة خواضة.","video":"https://vt.tiktok.com/ZSVtRP3s8/","image":"33.jpg"},{"id":"r35","num":"34","cat":"تقديمات الضيافة","name":"صحن أكريلك صغير","price":38,"options":[],"unit":"","deposit":null,"info":"تشكيلة متنوعة مع الخواضة","desc":"صحن أكريلك صغير يحتوي على قلات الخواضة، والمضير، وتمر الخلاص، وتمر الفذ، مع الخواضة.","video":"https://vt.tiktok.com/ZSVtR4HxL/","image":"34.jpg"},{"id":"r36","num":"35","cat":"تقديمات الضيافة","name":"صحن قصدير بالتمر المحشي","price":70,"options":[],"unit":"","deposit":null,"info":"","desc":"صحن قصدير بالتمر المحشي.","video":"https://vt.tiktok.com/ZSqDUFgTe/","image":"35.jpg"},{"id":"r37","num":"36","cat":"تقديمات الضيافة","name":"ضيافة بوكسات بالاسم","price":12,"options":[],"unit":"للعلبة","deposit":null,"info":"","desc":"علب بالثيم لطاولات الخدمة بتشكيلة متنوعة\nحرية اختيار العميل التشكيلة المناسبة بنفس السعر.","video":"https://vt.tiktok.com/ZSqrBpD2X/","image":"36.jpg"},{"id":"r38","num":"37","cat":"الذبائح","name":"ذبائح طليان","price":null,"options":[],"unit":"","deposit":null,"info":"","desc":"الأعمار من ٤ شهور إلى ٨ شهور.\nالوزن من ١٩ كيلو إلى ٢٨ كيلو.\nالأسعار تشمل الذبح والتوصيل.\nتتوفر خدمة التغليف بصحون بسعر ٥٠ ﷼.\nيوجد لدينا خدمة الطبخ والتوصيل لموقع المناسبة.","video":"","image":"37.jpg"},{"id":"r39","num":"38","cat":"الذبائح","name":"ذبائح تيوس","price":1725,"options":[],"unit":"","deposit":null,"info":"","desc":"العمر: ٧ شهور.\nالوزن: ٢٣ كيلو.\nالسعر شامل الذبح والتوصيل.\nيوجد لدينا خدمة الطبخ والتوصيل لموقع المناسبة.","video":"","image":"38.jpg"}]};
+</script>
+<script>
+(function(){
+  var S = DATA.settings, ITEMS = DATA.items;
+  var CAT_META = {
+    'المنتجات': {ic:'🌾', sub:'السمن والقهوة والدخن والمضير وغيرها', badge:'منتج تراثي'},
+    'تقديمات الضيافة': {ic:'✦', sub:'صواني وتمور وتقديمات للمناسبات والعزائم', badge:'ضيافة'},
+    'الذبائح': {ic:'🐑', sub:'خيارات الذبائح والتجهيز والتوصيل', badge:'ذبائح'}
+  };
+  function meta(c){ return CAT_META[c] || {ic:'◆', sub:'', badge:c}; }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function money(n){ return Number(n).toLocaleString('en-US') + ' ﷼'; }
+  function wa(text){ return 'https://wa.me/' + S.phone + '?text=' + encodeURIComponent(text); }
+  var byId = {}; ITEMS.forEach(function(it){ byId[it.id] = it; });
+
+  // ---------- cart state ----------
+  var KEY = 'turath-cart-v1';
+  var cart = {};       // key -> {id, opt, qty}
+  var sel = {};        // item id -> selected option index
+  var form = {name:'', when:'', where:'', notes:''};
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || '{}'); cart = saved.cart || {}; form = Object.assign(form, saved.form || {}); } catch(e){}
+  Object.keys(cart).forEach(function(k){ if (!byId[cart[k].id]) delete cart[k]; });
+  function persist(){ try { localStorage.setItem(KEY, JSON.stringify({cart:cart, form:form})); } catch(e){} }
+
+  function optIdx(it){ return it.options.length ? (sel[it.id] || 0) : -1; }
+  function keyOf(it, oi){ return it.id + (oi >= 0 ? '|' + oi : ''); }
+  function unitPrice(it, oi){ return oi >= 0 ? it.options[oi].price : it.price; }
+  function lineLabel(it, oi){ return it.name + (oi >= 0 ? ' – ' + it.options[oi].label : ''); }
+
+  function setQty(it, oi, q){
+    var k = keyOf(it, oi);
+    if (q <= 0) delete cart[k]; else cart[k] = {id:it.id, opt:oi, qty:q};
+    persist(); refresh();
+  }
+  function qtyOf(it, oi){ var c = cart[keyOf(it, oi)]; return c ? c.qty : 0; }
+
+  // ---------- render page ----------
+  var cats = [];
+  ITEMS.forEach(function(it){ if (cats.indexOf(it.cat) < 0) cats.push(it.cat); });
+
+  function cardHTML(it){
+    var m = meta(it.cat), oi = optIdx(it);
+    var p = unitPrice(it, oi);
+    var h = '<article class="card" data-id="' + it.id + '">';
+    h += '<div class="photo">' + (it.image ? '<img loading="lazy" alt="' + esc(it.name) + '" src="' + esc(it.image) + '">' : '<div class="noimg">✦</div>');
+    if (it.num) h += '<span class="num">' + esc(it.num) + '</span>';
+    h += '<b class="badge">' + esc(m.badge) + '</b></div><div class="body"><h3>' + esc(it.name) + '</h3>';
+    h += (p != null) ? '<div class="price" data-price>' + money(p) + (it.unit ? ' <small>' + esc(it.unit) + '</small>' : '') + '</div>'
+                     : '<div class="price ask">السعر عند الطلب</div>';
+    if (it.options.length){
+      h += '<div class="opts">' + it.options.map(function(o, i){
+        return '<button type="button" data-opt="' + i + '" class="' + (i === oi ? 'on' : '') + '">' + esc(o.label) + '</button>';
+      }).join('') + '</div>';
+    }
+    if (it.deposit) h += '<div class="deposit">التأمين: ' + money(it.deposit) + '</div>';
+    if (it.info) h += '<div class="info">' + esc(it.info) + '</div>';
+    if (it.desc || it.video){
+      h += '<details><summary>تفاصيل المنتج</summary>' + (it.desc ? '<p>' + esc(it.desc) + '</p>' : '') +
+           (it.video ? '<a class="video" target="_blank" rel="noopener" href="' + esc(it.video) + '">▶ شاهد فيديو المنتج</a>' : '') + '</details>';
+    }
+    h += '<div class="act" data-act></div></div></article>';
+    return h;
+  }
+
+  function page(){
+    var h = '<header class="hero">' + (S.logo ? '<div class="logo"><img alt="شعار ' + esc(S.store) + '" src="' + esc(S.logo) + '"></div>' : '') +
+      '<h1>' + esc(S.title) + '</h1>' + (S.tagline ? '<p>' + esc(S.tagline) + '</p>' : '') + '<div class="ornament">◇ ✦ ◇</div></header>';
+    h += '<section class="intro"><div class="kicker">دليل ' + esc(S.store) + '</div>' +
+      (S.intro ? '<h2>' + esc(S.intro) + '</h2>' : '') + (S.introText ? '<p class="txt">' + esc(S.introText) + '</p>' : '<div style="height:12px"></div>') +
+      '<div class="cats">' + cats.map(function(c, i){ var m = meta(c);
+        return '<a class="cat-card" data-go="' + i + '"><span class="ic">' + m.ic + '</span><b>' + esc(c) + '</b>' + (m.sub ? '<small>' + esc(m.sub) + '</small>' : '') + '</a>'; }).join('') + '</div>' +
+      '<a class="help" target="_blank" rel="noopener" href="' + wa('السلام عليكم، أحتاج مساعدة في اختيار المنتج أو التقديم المناسب من ' + S.store + '.') + '">✨ ساعدني أختار</a>' +
+      '<p class="help-note">أرسل لنا نوع المناسبة وعدد الضيوف ونساعدك باختيار الأنسب.</p></section>';
+    h += '<nav class="tabs" id="tabs">' + cats.map(function(c, i){ return '<button type="button" data-go="' + i + '">' + esc(c) + '</button>'; }).join('') + '</nav>';
+    cats.forEach(function(c, i){
+      h += '<h2 class="cat-title" id="cat' + i + '">' + esc(c) + '</h2><section class="grid">' +
+        ITEMS.filter(function(it){ return it.cat === c; }).map(cardHTML).join('') + '</section>';
+    });
+    h += '<footer>اختر أصنافك ثم اضغط "عرض طلبك" لإرسال الطلب على واتساب<br>' + esc(S.store) + '</footer>';
+    document.getElementById('app').innerHTML = h;
+  }
+
+  function actHTML(it){
+    var oi = optIdx(it), q = qtyOf(it, oi);
+    if (!q) return '<button type="button" class="add" data-add>+ أضف للطلب</button>';
+    return '<div class="step"><button type="button" data-inc aria-label="زيادة">+</button><span>' + q + '</span><button type="button" data-dec aria-label="نقص">−</button></div>';
+  }
+
+  function refreshCards(){
+    document.querySelectorAll('.card').forEach(function(card){
+      var it = byId[card.getAttribute('data-id')], oi = optIdx(it);
+      card.querySelector('[data-act]').innerHTML = actHTML(it);
+      var any = Object.keys(cart).some(function(k){ return cart[k].id === it.id; });
+      card.classList.toggle('in-cart', any);
+      if (it.options.length){
+        card.querySelectorAll('[data-opt]').forEach(function(b){ b.classList.toggle('on', +b.getAttribute('data-opt') === oi); });
+        var pe = card.querySelector('[data-price]'), p = unitPrice(it, oi);
+        if (pe) pe.innerHTML = p != null ? money(p) + (it.unit ? ' <small>' + esc(it.unit) + '</small>' : '') : 'السعر عند الطلب';
+      }
+    });
+  }
+
+  function totals(){
+    var t = {count:0, total:0, deposit:0, ask:false, lines:[]};
+    Object.keys(cart).forEach(function(k){
+      var c = cart[k], it = byId[c.id]; if (!it) return;
+      var p = unitPrice(it, c.opt);
+      t.count += c.qty;
+      if (p == null) t.ask = true; else t.total += p * c.qty;
+      if (it.deposit) t.deposit += it.deposit * c.qty;
+      t.lines.push({k:k, it:it, oi:c.opt, qty:c.qty, p:p});
+    });
+    return t;
+  }
+
+  function message(t){
+    var L = ['السلام عليكم، أبغى أطلب من ' + S.store + ' 🌿', ''];
+    t.lines.forEach(function(l, i){
+      L.push((i + 1) + ') ' + lineLabel(l.it, l.oi) + (l.it.num ? ' (رقم ' + l.it.num + ')' : ''));
+      L.push('   الكمية: ' + l.qty + (l.p != null ? ' × ' + money(l.p) + ' = ' + money(l.p * l.qty) : ' – السعر عند الطلب'));
+    });
+    L.push('');
+    L.push('المجموع: ' + money(t.total) + (t.ask ? ' + أصناف سعرها يتحدد عند الطلب' : ''));
+    if (t.deposit) L.push('التأمين: ' + money(t.deposit));
+    var f = [['الاسم', form.name], ['موعد التوصيل / المناسبة', form.when], ['الموقع / الحي', form.where], ['ملاحظات', form.notes]]
+      .filter(function(x){ return String(x[1]).trim(); });
+    if (f.length){ L.push(''); f.forEach(function(x){ L.push(x[0] + ': ' + String(x[1]).trim()); }); }
+    return L.join('\n');
+  }
+
+  function refreshBar(t){
+    document.getElementById('bar').classList.toggle('show', t.count > 0);
+    document.getElementById('barCnt').textContent = t.count;
+    document.getElementById('barTot').textContent = money(t.total) + (t.ask ? ' +' : '');
+  }
+
+  var sheetOpen = false;
+  function renderSheet(t){
+    var el = document.getElementById('sheet');
+    var h = '<div class="sheet-h"><h2>طلبك</h2><button class="x" type="button" data-close aria-label="إغلاق">✕</button></div>';
+    if (!t.lines.length){
+      el.innerHTML = h + '<div class="empty">السلة فاضية — اختر من المنيو</div>';
+      return;
+    }
+    h += t.lines.map(function(l){
+      return '<div class="line" data-k="' + esc(l.k) + '">' + (l.it.image ? '<img alt="" src="' + esc(l.it.image) + '">' : '<div class="ph"></div>') +
+        '<div class="t"><b>' + esc(lineLabel(l.it, l.oi)) + '</b><small>' + (l.p != null ? money(l.p) + (l.it.unit ? ' ' + esc(l.it.unit) : '') : 'السعر عند الطلب') + '</small></div>' +
+        '<div class="step"><button type="button" data-linc>+</button><span>' + l.qty + '</span><button type="button" data-ldec>−</button></div></div>';
+    }).join('');
+    h += '<div class="sum"><div class="tot"><span>المجموع</span><span>' + money(t.total) + '</span></div>' +
+      (t.deposit ? '<div><span>التأمين</span><span>' + money(t.deposit) + '</span></div>' : '') +
+      (t.ask ? '<span class="note">+ أصناف سعرها يتحدد عند الطلب</span>' : '') + '</div>';
+    if (!el.querySelector('.fields')) {
+      h += '<div class="fields">' +
+        '<label>الاسم<input data-f="name" autocomplete="name" value="' + esc(form.name) + '"></label>' +
+        '<label>موعد التوصيل / المناسبة<input data-f="when" placeholder="مثال: الخميس العصر" value="' + esc(form.when) + '"></label>' +
+        '<label>الموقع / الحي<input data-f="where" value="' + esc(form.where) + '"></label>' +
+        '<label>ملاحظات<textarea data-f="notes" placeholder="أي تفاصيل إضافية">' + esc(form.notes) + '</textarea></label></div>' +
+        '<a class="send" id="send" target="_blank" rel="noopener">إرسال الطلب على واتساب</a>' +
+        '<button type="button" class="clear" data-clear>إفراغ السلة</button>';
+      el.innerHTML = h;
+    } else {
+      // keep the form (and focus) intact, rebuild only the list + summary
+      var keep = el.querySelector('.fields'), send = el.querySelector('#send'), clr = el.querySelector('[data-clear]');
+      el.innerHTML = h; el.appendChild(keep); el.appendChild(send); el.appendChild(clr);
+    }
+    document.getElementById('send').href = wa(message(t));
+  }
+
+  function refresh(){
+    var t = totals();
+    refreshCards(); refreshBar(t);
+    if (sheetOpen) renderSheet(t);
+  }
+
+  function openSheet(){ sheetOpen = true; renderSheet(totals()); document.getElementById('ov').classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeSheet(){ sheetOpen = false; document.getElementById('ov').classList.remove('show'); document.body.style.overflow = ''; }
+
+  // ---------- events ----------
+  document.addEventListener('click', function(e){
+    var go = e.target.closest('[data-go]');
+    if (go){ e.preventDefault(); var t = document.getElementById('cat' + go.getAttribute('data-go')); if (t) t.scrollIntoView({behavior:'smooth'}); return; }
+    var card = e.target.closest('.card');
+    if (card){
+      var it = byId[card.getAttribute('data-id')];
+      var ob = e.target.closest('[data-opt]');
+      if (ob){ sel[it.id] = +ob.getAttribute('data-opt'); refreshCards(); return; }
+      var oi = optIdx(it), q = qtyOf(it, oi);
+      if (e.target.closest('[data-add]') || e.target.closest('[data-inc]')) return setQty(it, oi, q + 1);
+      if (e.target.closest('[data-dec]')) return setQty(it, oi, q - 1);
+      return;
+    }
+    if (e.target.closest('#barBtn')) return openSheet();
+    if (e.target.id === 'ov' || e.target.closest('[data-close]')) return closeSheet();
+    var line = e.target.closest('.line');
+    if (line){
+      var c = cart[line.getAttribute('data-k')]; if (!c) return;
+      var li = byId[c.id];
+      if (e.target.closest('[data-linc]')) return setQty(li, c.opt, c.qty + 1);
+      if (e.target.closest('[data-ldec]')) return setQty(li, c.opt, c.qty - 1);
+    }
+    if (e.target.closest('[data-clear]')){ cart = {}; persist(); refresh(); closeSheet(); }
+  });
+  document.addEventListener('input', function(e){
+    var f = e.target.getAttribute && e.target.getAttribute('data-f');
+    if (!f) return;
+    form[f] = e.target.value; persist();
+    var s = document.getElementById('send'); if (s) s.href = wa(message(totals()));
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && sheetOpen) closeSheet(); });
+
+  // highlight the tab of the section in view
+  function watchTabs(){
+    if (!('IntersectionObserver' in window)) return;
+    var btns = document.querySelectorAll('#tabs button');
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){ if (en.isIntersecting){ var i = en.target.id.replace('cat', '');
+        btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-go') === i); }); } });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('.cat-title').forEach(function(t){ io.observe(t); });
+  }
+
+  page(); refresh(); watchTabs();
+  // fallback if a Drive image link fails
+  document.querySelectorAll('.photo img').forEach(function(img){
+    img.addEventListener('error', function(){
+      var m = img.src.match(/\/d\/([\w-]+)/);
+      if (m && img.src.indexOf('thumbnail') < 0) img.src = 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w900';
+      else img.replaceWith(Object.assign(document.createElement('div'), {className:'noimg', textContent:'✦'}));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
